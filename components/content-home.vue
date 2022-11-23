@@ -6,28 +6,28 @@
     </div>
 
     <div class="content-grid">
-      <content-card class="card-item" :to="email">
-        <img src="/social-media/mail.webp" alt="">
+      <content-card class="card-item" :to="email" aria-label="Click to send an email">
+        <img src="/social-media/mail.webp" alt="Email">
       </content-card>
 
-      <content-card class="card-item" :to="linkedinProfile">
-        <img src="/social-media/linkedin.png">
+      <content-card class="card-item" :to="linkedinProfile" aria-label="Click to go to my Linkedin Profile">
+        <img src="/social-media/linkedin.png" alt="Linkedin">
       </content-card>
 
-      <content-card class="card-item" :to="whatsapp">
-        <img src="/social-media/whatsapp.png" alt="">
+      <content-card class="card-item" :to="whatsapp" aria-label="Click to send me a message on Whatsapp">
+        <img src="/social-media/whatsapp.png" alt="Whatsapp">
       </content-card>
 
-      <content-card class="card-item" :to="nbl">
-        <img src="/work/nbl.png">
+      <content-card class="card-item" :to="nbl" aria-label="Click to go to NBL link">
+        <img src="/work/nbl.png" alt="NBL">
       </content-card>
 
-      <content-card class="card-item" :to="sabido">
-        <img src="/work/sabido.png" alt="">
+      <content-card class="card-item" :to="sabido" aria-label="Click to go to Sabido link">
+        <img src="/work/sabido.png" alt="Sabido">
       </content-card>
 
-      <content-card class="card-item" :to="signorino">
-        <img src="/work/signorino.jpg" alt="" class="signorino">
+      <content-card class="card-item" :to="signorino" aria-label="Click to go to Signorino link">
+        <img src="/work/signorino.jpg" alt="Signorino" class="signorino">
       </content-card>
     </div>
   </div>

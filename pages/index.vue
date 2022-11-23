@@ -9,7 +9,7 @@ export default {
   name: 'IndexPage',
   head () {
     const descriptionText = 'Hi, I\'m Gustavo and my job is to make sure your product will be sustainable maintainable and scalable Check here my social media and last works.'
-    const image = `/gustavo-dev.jpg`
+    const image = `https://gustavo-dev.com.br/gustavo-dev.jpg`
 
     return {
       meta: [
