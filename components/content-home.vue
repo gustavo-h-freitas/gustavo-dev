@@ -23,7 +23,7 @@ export default {
         title: 'E-mail',
         ariaLabel: 'Click to send an email',
         img: {
-          url: '/social-media/mail.webp',
+          url: '/social-media/mail.png',
           alt: 'Email'
         }
       },
@@ -101,16 +101,20 @@ export default {
 
 @media (max-width: 768px) {
   .content {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .content-grid {
     grid-template-columns: 1fr;
-    padding: 1rem;
   }
   
   .content-title {
-    padding: 1rem 0;
+    padding: 0 0 1rem;
+    text-align: left;
+  }
+
+  .content-title h1 {
+    font-size: 1.85rem;
   }
 }
 </style>
