@@ -145,6 +145,7 @@ export default {
 .tab-holder {
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .content-grid.tab {
@@ -154,6 +155,7 @@ export default {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  user-select: none;
 }
 
 .content-grid.tab.active {
@@ -162,5 +164,13 @@ export default {
   transform: translateX(0);
   visibility: visible;
   opacity: 1;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+@media (max-width: 768px) {
+  .tab-holder {
+    position: static;
+  }
 }
 </style>
