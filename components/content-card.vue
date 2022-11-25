@@ -1,7 +1,7 @@
 <template>
-  <abstract-link class="card" :to="to">
+  <component :is="cardTag" class="card" :to="to">
     <slot/>
-  </abstract-link>
+  </component>
 </template>
 
 <script>
@@ -10,6 +10,10 @@ export default {
     to: {
       type: String,
       default: ''
+    },
+    cardTag: {
+      type: String,
+      default: 'abstract-link'
     }
   }
 }
@@ -25,5 +29,6 @@ export default {
   border-top: 1px solid rgba(255, 255, 255, 50%);
   border-left: 1px solid rgba(255, 255, 255, 50%);
   backdrop-filter: blur(5px);
+  cursor: pointer;
 }
 </style>

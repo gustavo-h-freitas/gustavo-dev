@@ -24,7 +24,8 @@ export default {
   components: {
     dirs: [
       '~/components/',
-      '~/components/atoms'
+      '~/components/atoms',
+      '~/components/molecules'
     ]
   },
 

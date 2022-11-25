@@ -47,12 +47,12 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background: #161623;
+  overflow-x: hidden;
 }
 
 .content-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 

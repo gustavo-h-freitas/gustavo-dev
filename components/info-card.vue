@@ -97,7 +97,7 @@ img.signorino {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     left: 0;
     top: 0;
     height: 100%;

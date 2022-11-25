@@ -1,84 +1,29 @@
 <template>
   <div class="content">
     <div class="content-title">
-      <h1>Hi, I'm Gustavo and my job is to make sure your product will be sustainable, maintainable and scalable.</h1>
+      <h1>Hi, I'm <b> Gustavo </b> and my job is to make sure your product will be sustainable, maintainable and scalable.</h1>
       <h1>Check here my social media and last works.</h1>
     </div>
 
-    <div class="content-grid">
-      <info-card
-        v-for="(item, index) in contentCards" :key="`info-card-${index}`"
-        v-bind="item"
-      />
-    </div>
+    <tabs-selector v-model="selectedTab"/>
+
+    <tabs-grid :selected-tab="selectedTab"/>
   </div>
 </template>
 
 <script>
 export default {
   data: () => ({
-    contentCards: [
-      {
-        link: 'mailto:business.gustavo.freitas@gmail.com',
-        title: 'E-mail',
-        ariaLabel: 'Click to send an email',
-        img: {
-          url: '/social-media/mail.png',
-          alt: 'Email'
-        }
-      },
-      {
-        link: 'https://www.linkedin.com/in/gustavo-henrique-freitas/?locale=en_US',
-        title: 'Linkedin',
-        ariaLabel: 'Click to go to my Linkedin Profile',
-        img: {
-          url: '/social-media/linkedin.png',
-          alt: 'Linkedin'
-        }
-      },
-      {
-        link: 'https://wa.me/+5561984004710',
-        title: 'Whatsapp',
-        ariaLabel: 'Click to send me a message on Whatsapp',
-        img: {
-          url: '/social-media/whatsapp.png',
-          alt: 'Whatsapp'
-        }
-      },
-      {
-        link: 'https://nbl.com.au/',
-        title: 'NBL',
-        ariaLabel: 'Click to go to NBL link',
-        img: {
-          url: '/work/nbl.png',
-          alt: 'NBL'
-        }
-      },
-      {
-        link: 'https://sabido.com/',
-        title: 'Sabido',
-        ariaLabel: 'Click to go to Sabido link',
-        img: {
-          url: '/work/sabido.png',
-          alt: 'Sabido'
-        }
-      },
-      {
-        link: 'https://www.signorino.com.au/',
-        title: 'Signorino',
-        ariaLabel: 'Click to go to Signorino link',
-        img: {
-          url: '/work/signorino.jpg',
-          alt: 'Sinorino'
-        },
-        imgClass: 'signorino'
-      }
-    ]
+    selectedTab: 'social'
   })
 }
 </script>
 
 <style>
+b {
+  font-weight: bolder;
+}
+
 .content-title {
   color: #fcfcfc;
   text-align: center;
@@ -90,6 +35,9 @@ export default {
   max-width: 1100px;
   width: 100%;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .content-grid {
@@ -114,7 +62,7 @@ export default {
   }
 
   .content-title h1 {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
 }
 </style>
