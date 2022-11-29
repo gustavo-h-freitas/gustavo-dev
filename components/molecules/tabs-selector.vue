@@ -1,7 +1,7 @@
 <template>
   <div class="tab-selector-wrapper">
     <content-card 
-      card-tag="div"
+      card-tag="button"
       :class="['tabs-card', { active: isSocialActive }]" 
       @click.native="handleTabSelection('social')"
     >
@@ -9,7 +9,7 @@
     </content-card>
 
     <content-card 
-      card-tag="div"
+      card-tag="button"
       :class="['tabs-card', { active: !isSocialActive }]" 
       @click.native="handleTabSelection('work')"
     >
