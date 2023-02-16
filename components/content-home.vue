@@ -9,7 +9,7 @@
 
     <tabs-grid :selected-tab="selectedTab"/>
 
-    <email-form />
+    <email-modal />
   </div>
 </template>
 
