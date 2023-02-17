@@ -168,13 +168,13 @@ input:focus, textarea:focus {
 
 .success-message {
   color: #599744;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
   font-weight: 600;
 }
 
 .error-message {
   color: #b10c2a;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
   font-weight: 600;
 }
 
