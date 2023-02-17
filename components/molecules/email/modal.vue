@@ -1,9 +1,9 @@
 <template>
   <div class="contact-absolute">
-    <p @click="openModal()">Contact me</p>
+    <p @click="toggleModal(true)">Contact me</p>
 
     <modal v-model="showModal">
-      <email-form />
+      <email-form :is-modal-open="showModal" @closeModal="toggleModal(false)"/>
     </modal>
   </div>
 </template>
@@ -14,9 +14,23 @@ export default {
     showModal: false
   }),
 
+  mounted() {
+    document.addEventListener('keyup', this.quitOnEscKey)
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('keyup', this.quitOnEscKey)
+  },
+
   methods: {
-    openModal() {
-      this.showModal = true
+    toggleModal(showModal = true) {
+      this.showModal = showModal
+    },
+
+    quitOnEscKey({ key }) {
+      if (key === 'Escape') {
+        this.toggleModal(false)
+      }
     }
   }
 }
@@ -32,7 +46,7 @@ export default {
   border-radius: 6px;
 }
 
-.contact-absolute p {
+.contact-absolute > p {
   cursor: pointer;
   font-weight: 700;
   padding: .75rem 1.5rem;

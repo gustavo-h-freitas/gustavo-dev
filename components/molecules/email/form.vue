@@ -2,43 +2,102 @@
   <div class="modal-content" @click.stop>
     <h2>Get in touch with me!</h2>
 
-  <form class="email-form" @submit.prevent="submitEmail">
-    <div>
-      <input
-        v-model="name"
-        type="text"
-        required="true"
-        placeholder="Name"
-        aria-label="Name"
-      />
+    <button class="close-button" @click="$emit('closeModal')">X</button>
+    
+    <form class="email-form" @submit.prevent="handleEmailSubmit">
+      <div>
+        <input
+          ref="nameInput"
+          v-model="emailForm.name"
+          type="text"
+          required="true"
+          name="from_name"
+          placeholder="Name"
+          aria-label="Name"
+        />
 
-      <input
-        v-model="email"
-        type="email"
-        required="true"
-        placeholder="E-mail"
-        aria-label="E-mail"
-      />
-    </div>
+        <input
+          v-model="emailForm.email"
+          type="email"
+          required="true"
+          name="from_email"
+          placeholder="E-mail"
+          aria-label="E-mail"
+        />
+      </div>
 
-    <textarea v-model="message" cols="30" rows="10" required="true" placeholder="Leave a message..."/>
+      <textarea v-model="emailForm.message" name="message" cols="30" rows="10" required="true" placeholder="Leave a message..."/>
 
-    <input type="submit" value="Submit">
-  </form>
+      <input type="submit" value="Submit">
+    </form>
+
+    <p v-if="success" class="success-message">Message sent successfully! I'll reply ASAP.</p>
+    <p v-if="error" class="error-message">Something went wrong trying to send your message. :(</p>
   </div>
 </template>
 
 <script>
+import { includeMetaTag } from '~/utils/index.js'
+
 export default {
+  props: {
+    isModalOpen: {
+      type: Boolean,
+      required: true
+    }
+  },
+
   data: () => ({
-    name: '',
-    email: '',
-    message: ''
+    emailForm: {
+      email: '',
+      name: '',
+      message: ''
+    },
+    emailJs: null,
+    success: false,
+    error: false
   }),
 
+  watch: {
+    isModalOpen: {
+      handler(newValue) {
+        if (newValue) {
+          this.$refs.nameInput.focus()
+        }
+      }
+    }
+  },
+
   methods: {
-    submitEmail(event) {
-      console.log(event);
+    async handleEmailSubmit(event) {
+      await this.initEmailJs(event.srcElement)
+
+      try {
+        this.emailJs.sendForm(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, event.srcElement)
+        this.success = true
+        this.error = false
+      } catch {
+        this.success = false
+        this.error = true
+      }
+    },
+
+    async initEmailJs() {
+      try {
+        await includeMetaTag('https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js', 'emailjs')
+        this.emailJs = window.emailjs
+        this.emailJs.init(process.env.EMAIL_PUBLIC_KEY)
+        this.resetForm()
+      } catch (err) {
+        this.success = false
+        this.error = true
+      }
+    },
+
+    resetForm() {
+      this.emailForm.email = ''
+      this.emailForm.name = ''
+      this.emailForm.message = ''
     }
   }
 }
@@ -86,6 +145,7 @@ input:focus, textarea:focus {
   background: #fefefe;
   padding: 1rem;
   box-shadow: -2px 2px 4px rgba(255, 255, 255, 10%);
+  position: relative;
 }
 
 .modal-content h2 {
@@ -98,12 +158,44 @@ input:focus, textarea:focus {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  background: #222222;
+  background: #2196f3;
   color: #fefefe;
   border: none;
   border-radius: 6px;
   width: min-content;
   cursor: pointer;
+}
+
+.success-message {
+  color: #599744;
+  margin: 2rem 0;
+  font-weight: 600;
+}
+
+.error-message {
+  color: #b10c2a;
+  margin: 2rem 0;
+  font-weight: 600;
+}
+
+.close-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  right: 1rem;
+  top: 1rem;
+  width: 1.675rem;
+  height: 1.675rem;
+  border-radius: 100%;
+  line-height: 1;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #2a2a2a;
+  background: #b10c2a;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
 }
 
 @media (max-width: 660px) {
