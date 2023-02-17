@@ -1,2 +1,2 @@
 [build]
-  command = "echo 'EMAIL_PUBLIC_KEY=oJLs2ZEGtvA6lc1_5' >> .env && echo 'EMAIL_SERVICE_ID=service_np85oop' >> .env && echo 'EMAIL_TEMPLATE_ID=template_hifrbx6' >> .env && yarn build"
+  command = "echo 'EMAIL_PUBLIC_KEY=oJLs2ZEGtvA6lc1_5' >> .env && echo 'EMAIL_SERVICE_ID=service_np85oop' >> .env && echo 'EMAIL_TEMPLATE_ID=template_hifrbx6' >> .env && yarn generate"
