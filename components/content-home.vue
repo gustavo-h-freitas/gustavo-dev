@@ -8,6 +8,8 @@
     <tabs-selector v-model="selectedTab"/>
 
     <tabs-grid :selected-tab="selectedTab"/>
+
+    <email-modal />
   </div>
 </template>
 
