@@ -74,9 +74,10 @@ export default {
       await this.initEmailJs(event.srcElement)
 
       try {
-        this.emailJs.sendForm(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, event.srcElement)
+        await this.emailJs.sendForm(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, event.srcElement)
         this.success = true
         this.error = false
+        this.resetForm()
       } catch {
         this.success = false
         this.error = true
@@ -88,7 +89,6 @@ export default {
         await includeMetaTag('https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js', 'emailjs')
         this.emailJs = window.emailjs
         this.emailJs.init(process.env.EMAIL_PUBLIC_KEY)
-        this.resetForm()
       } catch (err) {
         this.success = false
         this.error = true
