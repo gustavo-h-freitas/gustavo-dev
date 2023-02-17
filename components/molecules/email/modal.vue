@@ -38,7 +38,7 @@ export default {
 
 <style>
 .contact-absolute {
-  position: absolute;
+  position: fixed;
   color: #2a2a2a;
   bottom: 20px;
   right: 20px;

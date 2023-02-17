@@ -79,4 +79,10 @@ body::after {
   clip-path: circle(25% at 25% 20%);
   z-index: -1;
 }
+
+@media (max-width: 884px) {
+  .content-wrapper {
+    margin-bottom: 50px;
+  }
+}
 </style>

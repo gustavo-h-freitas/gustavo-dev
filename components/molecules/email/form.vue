@@ -14,6 +14,7 @@
           name="from_name"
           placeholder="Name"
           aria-label="Name"
+          autocomplete="off"
         />
 
         <input
@@ -143,7 +144,7 @@ input:focus, textarea:focus {
   border-radius: 6px;
   width: 100%;
   background: #fefefe;
-  padding: 1rem;
+  padding: 1.5rem;
   box-shadow: -2px 2px 4px rgba(255, 255, 255, 10%);
   position: relative;
 }
@@ -184,8 +185,8 @@ input:focus, textarea:focus {
   justify-content: center;
   align-items: center;
   text-align: center;
-  right: 1rem;
-  top: 1rem;
+  right: 6px;
+  top: 6px;
   width: 1.675rem;
   height: 1.675rem;
   border-radius: 100%;
