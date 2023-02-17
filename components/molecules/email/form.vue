@@ -61,6 +61,7 @@ export default {
   watch: {
     isModalOpen: {
       handler(newValue) {
+        console.log(process.env.EMAIL_PUBLIC_KEY, process.env.EMAIL_TEMPLATE_ID, process.env.EMAIL_SERVICE_ID);
         if (newValue) {
           this.$refs.nameInput.focus()
         }
