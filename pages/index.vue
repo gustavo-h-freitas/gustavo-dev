@@ -1,38 +1,55 @@
 <template>
   <div class="content-wrapper">
-    <content-home/>
+    <content-home />
   </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
-  head () {
-    const descriptionText = 'Hi, I\'m Gustavo and my job is to make sure your product will be sustainable maintainable and scalable Check here my social media and last works.'
-    const image = `https://gustavo-dev.com.br/gustavo-dev.jpg`
+  head() {
+    const descriptionText =
+      "Hi, I'm Gustavo and my job is to make sure your product will be sustainable maintainable and scalable Check here my social media and last works."
+    const image = `https://gustavo-dev.com.br/me.jpg`
 
     return {
       meta: [
         { hid: 'og:title', name: 'og:title', content: 'Gustavo Freitas' },
-        { hid: 'twitter:title', name: 'twitter:title', content: 'Gustavo Freitas' },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Gustavo Freitas',
+        },
         { hid: 'description', name: 'description', content: descriptionText },
 
-        { hid: 'og:description', name: 'og:description', content: descriptionText },
-        { hid: 'twitter:description', name: 'twitter:description', content: descriptionText },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: descriptionText,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: descriptionText,
+        },
 
-        { property: 'og:image:secure_url', hid: 'og:image:secure_url', content: image },
+        {
+          property: 'og:image:secure_url',
+          hid: 'og:image:secure_url',
+          content: image,
+        },
         { property: 'og:image', hid: 'og:image', content: image },
-        { name: 'twitter:image', hid: 'twitter:image', content: image }
-      ]
+        { name: 'twitter:image', hid: 'twitter:image', content: image },
+      ],
     }
-  }
+  },
 }
 </script>
 
 <style>
 @font-face {
   font-family: Inter;
-  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 }
 
 * {
