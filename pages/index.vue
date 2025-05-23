@@ -10,7 +10,7 @@ export default {
   head() {
     const descriptionText =
       "Hi, I'm Gustavo and my job is to make sure your product will be sustainable maintainable and scalable Check here my social media and last works."
-    const image = `https://gustavo-dev.com.br/me.jpg`
+    const image = 'https://gustavo-dev.com.br/me.jpg'
 
     return {
       meta: [
