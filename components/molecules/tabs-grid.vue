@@ -2,14 +2,20 @@
   <div class="tab-holder">
     <div ref="social" :class="['content-grid tab', { active: showSocial }]">
       <info-card
-        v-for="(item, index) in socialCards" :key="`info-card-${index}`"
+        v-for="(item, index) in socialCards"
+        :key="`info-card-${index}`"
         v-bind="item"
       />
     </div>
 
-    <div id="hide" ref="work" :class="['content-grid tab', { active: !showSocial }]">
+    <div
+      id="hide"
+      ref="work"
+      :class="['content-grid tab', { active: !showSocial }]"
+    >
       <info-card
-        v-for="(item, index) in workCards" :key="`info-card-${index}`"
+        v-for="(item, index) in workCards"
+        :key="`info-card-${index}`"
         v-bind="item"
       />
     </div>
@@ -21,8 +27,8 @@ export default {
   props: {
     selectedTab: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
 
   data: () => ({
@@ -33,8 +39,8 @@ export default {
         ariaLabel: 'Click to send an email',
         img: {
           url: '/social-media/mail.png',
-          alt: 'Email'
-        }
+          alt: 'Email',
+        },
       },
       {
         link: 'https://www.linkedin.com/in/gustavo-henrique-freitas/?locale=en_US',
@@ -42,8 +48,8 @@ export default {
         ariaLabel: 'Click to go to my Linkedin Profile',
         img: {
           url: '/social-media/linkedin.png',
-          alt: 'Linkedin'
-        }
+          alt: 'Linkedin',
+        },
       },
       {
         link: 'https://wa.me/+5561984004710',
@@ -51,8 +57,8 @@ export default {
         ariaLabel: 'Click to send me a message on Whatsapp',
         img: {
           url: '/social-media/whatsapp.png',
-          alt: 'Whatsapp'
-        }
+          alt: 'Whatsapp',
+        },
       },
     ],
     workCards: [
@@ -62,17 +68,17 @@ export default {
         ariaLabel: 'Click to go to NBL link',
         img: {
           url: '/work/nbl.png',
-          alt: 'NBL'
-        }
+          alt: 'NBL',
+        },
       },
       {
-        link: 'https://sabido.com/',
-        title: 'Sabido',
-        ariaLabel: 'Click to go to Sabido link',
+        link: 'https://rolhr.undp.org/annualreport/2023/',
+        title: 'UNDP',
+        ariaLabel: 'Click to go to UNDP link',
         img: {
-          url: '/work/sabido.png',
-          alt: 'Sabido'
-        }
+          url: '/work/un.png',
+          alt: 'UNDP',
+        },
       },
       {
         link: 'https://www.signorino.com.au/',
@@ -80,9 +86,9 @@ export default {
         ariaLabel: 'Click to go to Signorino link',
         img: {
           url: '/work/signorino.jpg',
-          alt: 'Sinorino'
+          alt: 'Sinorino',
         },
-        imgClass: 'signorino'
+        imgClass: 'signorino',
       },
       {
         link: 'https://www.basketballvictoria.com.au/',
@@ -90,7 +96,7 @@ export default {
         ariaLabel: 'Click to go to Basketball Victoria link',
         img: {
           url: '/work/bv.png',
-          alt: 'Basketball Victoria'
+          alt: 'Basketball Victoria',
         },
       },
       {
@@ -99,27 +105,27 @@ export default {
         ariaLabel: 'Click to go to Amity link',
         img: {
           url: '/work/amity.png',
-          alt: 'Amity'
+          alt: 'Amity',
         },
       },
       {
-        link: 'https://leadbase.com.br/',
-        title: 'Leadbase',
-        ariaLabel: 'Click to go to Leadbase link',
+        link: 'https://outroll.com/',
+        title: 'Outroll',
+        ariaLabel: 'Click to go to Outroll link',
         img: {
-          url: '/work/lead.jpeg',
-          alt: 'Leadbase'
+          url: '/work/outroll.jpeg',
+          alt: 'Outroll',
         },
-      }
-    ]
+      },
+    ],
   }),
 
   computed: {
     showSocial() {
       return this.selectedTab === 'social'
-    }
+    },
   },
-  
+
   watch: {
     selectedTab: {
       deep: true,
@@ -131,9 +137,9 @@ export default {
           const oldTab = this.$refs[oldValue]
           oldTab.id = 'hide'
         }, 300)
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
 
@@ -151,7 +157,7 @@ export default {
 .content-grid.tab {
   position: absolute;
   transform: translate(-30%);
-  transition: .35s ease;
+  transition: 0.35s ease;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
