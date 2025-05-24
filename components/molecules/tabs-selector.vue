@@ -1,19 +1,19 @@
 <template>
   <div class="tab-selector-wrapper">
-    <content-card 
+    <content-card
       card-tag="button"
-      :class="['tabs-card', { active: isSocialActive }]" 
+      :class="['tabs-card', { active: isSocialActive }]"
       @click.native="handleTabSelection('social')"
     >
       <h3>Social Media</h3>
     </content-card>
 
-    <content-card 
+    <content-card
       card-tag="button"
-      :class="['tabs-card', { active: !isSocialActive }]" 
+      :class="['tabs-card', { active: !isSocialActive }]"
       @click.native="handleTabSelection('work')"
     >
-      <h3>Last works</h3>
+      <h3>Latest works</h3>
     </content-card>
   </div>
 </template>
@@ -23,14 +23,14 @@ export default {
   props: {
     value: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
     isSocialActive() {
       return this.value === 'social'
-    }
+    },
   },
 
   methods: {
@@ -38,8 +38,8 @@ export default {
       if (value !== this.value) {
         this.$emit('input', value)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

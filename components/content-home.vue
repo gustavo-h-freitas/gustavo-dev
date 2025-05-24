@@ -1,13 +1,16 @@
 <template>
   <div class="content">
     <div class="content-title">
-      <h1>Hi, I'm <b> Gustavo </b> and my job is to make sure your product will be sustainable, maintainable and scalable.</h1>
-      <h1>Check here my social media and last works.</h1>
+      <h1>
+        Hi, I'm <b> Gustavo </b> and my job is to make sure your product will be
+        sustainable, maintainable and scalable.
+      </h1>
+      <h1>Check here my social media and latest works.</h1>
     </div>
 
-    <tabs-selector v-model="selectedTab"/>
+    <tabs-selector v-model="selectedTab" />
 
-    <tabs-grid :selected-tab="selectedTab"/>
+    <tabs-grid :selected-tab="selectedTab" />
 
     <email-modal />
   </div>
@@ -16,8 +19,8 @@
 <script>
 export default {
   data: () => ({
-    selectedTab: 'social'
-  })
+    selectedTab: 'social',
+  }),
 }
 </script>
 
@@ -57,7 +60,7 @@ b {
   .content-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .content-title {
     padding: 0 0 1rem;
     text-align: left;
